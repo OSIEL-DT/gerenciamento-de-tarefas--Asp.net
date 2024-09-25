@@ -1,0 +1,22 @@
+@model TaskManagerApp.Models.TaskItem
+
+<h2>Edit Task</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input type="text" class="form-control" id="Title" name="Title" value="@Model.Title" required>
+    </div>
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <input type="text" class="form-control" id="Description" name="Description" value="@Model.Description">
+    </div>
+    <div class="form-group">
+        <label for="IsCompleted">Completed</label>
+        <input type="checkbox" id="IsCompleted" name="IsCompleted" @(Model.IsCompleted ? "checked" : "")>
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
+
+<a href="/Tasks" class="btn btn-secondary">Back to List</a>
